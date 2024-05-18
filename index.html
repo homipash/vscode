@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .container {
+			width: 2000px;
+            display: flex;
+			float: left;
+			margin-top: 20px;
+        }
+        .ad-container {
+            width: 234px;
+        }
+        .phone-container {
+            margin-left: 100px;
+            display: flex;
+            flex-wrap: wrap;
+            width: 1500px;
+        }
+        .phone-item {
+            width: 234px;
+            height: 300px;
+            margin-right: 100px;
+            margin-bottom: 100px;
+            text-align: center; 
+        }
+        .phone-item div {
+            width: 250px;
+        }
+		.phone-item img {
+		    display: block; /* 使图片水平居中 */
+		    margin: 0 auto; /* 水平居中 */
+		}
+        ul {
+            list-style-type: none;
+        }
+        p {
+            color: #8c8c8c; 
+        }
+
+        span {
+            color: #f05e0a;
+        }
+		.heade {
+		    display: flex;
+			padding-left: 1550px;
+		    font-size: 25px;
+		    height: 30px;
+		}
+		.heade img{
+		    width: 30px;
+		    height: 30px;
+			margin-top: 3px;
+			margin-left: 10px;
+		}
+
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="root">
+		<div class="heade">
+			查看更多<img src="img/1.png" alt="查看更多"/>
+		</div>
+        <div class="container">
+			
+            <div class="span1"> 
+                <ul class="ad-container">
+                    <li>
+                        <img src="img/ad1.png" alt="广告">
+                    </li>
+                </ul>
+            </div>
+            <div class="span2"> 
+                <ul class="phone-container">
+                    <li class="phone-item" v-for="phone in phoneList" :key="phone.id">
+                        <div>
+                            <img :src="phone.img" alt="手机图片">
+							<h3>{{ phone.title }}</h3>
+							<p>{{ phone.des }}</p>
+							<span>{{ phone.price }}</span>
+                        </div> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </template>
+      
+    <script>
+        const app = Vue.createApp({
+            template: '#root',
+            data() {
+                return {
+                    phoneList: [
+                        { id: '100081', img: 'img/phone1.png', title: 'Redmi K50 电竞版', des: '全线拉满的冷血旗舰', price: '3300 元起' },
+                        { id: '100082', img: 'img/phone2.png', title: 'Redmi K50 电竞版', des: '全线拉满的冷血旗舰', price: '3301 元起' },
+                        { id: '100083', img: 'img/phone3.png', title: 'Redmi K50 电竞版', des: '全线拉满的冷血旗舰', price: '3302 元起' },
+                        { id: '100084', img: 'img/phone4.png', title: 'Redmi K50 电竞版', des: '全线拉满的冷血旗舰', price: '3303 元起' },
+                        { id: '100085', img: 'img/phone5.png', title: 'Redmi K50 电竞版', des: '全线拉满的冷血旗舰', price: '3304 元起' },
+                        { id: '100086', img: 'img/phone6.png', title: 'Redmi K50 电竞版', des: '全线拉满的冷血旗舰', price: '3305 元起' },
+                        { id: '100087', img: 'img/phone7.png', title: 'Redmi K50 电竞版', des: '全线拉满的冷血旗舰', price: '3306 元起' },
+                        { id: '100088', img: 'img/phone8.png', title: 'Redmi K50 电竞版', des: '全线拉满的冷血旗舰', price: '3307 元起' }
+                    ]
+                };
+            }
+        })
+        app.mount('#app')
+    </script>  
+</body>
+</html>
